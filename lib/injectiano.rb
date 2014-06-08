@@ -6,4 +6,10 @@ class Array
 		accumulator
 	end
 
+	# yield approach
+	def injectiano_yield(result=self.delete_at(0))
+		self.each{|el| result = yield result, el}
+		result
+	end
+
 end
