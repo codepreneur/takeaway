@@ -1,4 +1,11 @@
+require 'twilio-ruby'
+
 class TakeAway
+
+	TWILIO_SID = `echo $TWILIO_SID`
+	TWILIO_TOKEN = `echo $TWILIO_TOKEN`
+	TWILIO_NUMBER = `echo $TWILIO_NUMBER`
+	TWILIO_USER_NUMBER = `echo $TWILIO_USER_NUMBER`
 
 	def initialize
 		@total = 0
@@ -61,6 +68,15 @@ class TakeAway
 			puts message
 			send_text(message)
 		end
+	end
+
+	def send_text(text)
+		@client = Twilio::REST::Client.new TWILIO_SID, TWILIO_TOKEN
+		@client.account.messages.create(
+			:from => TWILIO_NUMBER,
+			:to => TWILIO_USER_NUMBER,
+			:body => text
+			)
 	end
 
 

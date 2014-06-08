@@ -31,5 +31,9 @@ describe TakeAway do
 		takeaway.place_order
 		expect(takeaway.calculate_total).to eq 25
 	end
+
+	it 'sends text message with the order info' do
+		
+	end
 	
 end
