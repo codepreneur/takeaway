@@ -24,5 +24,12 @@ describe TakeAway do
 		takeaway.place_order
 		expect(takeaway.price_list).to eq [25]
 	end
+
+	it 'can calculate total' do
+		allow(takeaway).to receive(:dish).and_return(:pizza)
+		allow(takeaway).to receive(:quantity).and_return(5)
+		takeaway.place_order
+		expect(takeaway.calculate_total).to eq 25
+	end
 	
 end

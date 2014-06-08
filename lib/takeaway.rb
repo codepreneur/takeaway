@@ -44,4 +44,24 @@ class TakeAway
 		menu += "type pizza, burger or pasta\n"
 	end
 
+	def time_in_1_hour
+		Time.now + (60*60)
+	end
+
+	def control_flow
+		begin
+		puts print_menu
+		place_order
+		while !@dish.nil? || !@quantity.nil?
+			place_order
+		end
+		rescue NoMethodError => e 
+			time = time_in_1_hour
+			message = "Order Total: £#{@total}. Will be delivered before #{time.hour}:#{time.min}"
+			puts message
+			send_text(message)
+		end
+	end
+
+
 end
