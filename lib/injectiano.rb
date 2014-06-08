@@ -12,4 +12,10 @@ class Array
 		result
 	end
 
+	# recursive approach
+	def injectiano_recursivo(result=self.delete_at(0),&block)
+		# need to implement it
+	end
+
+
 end
