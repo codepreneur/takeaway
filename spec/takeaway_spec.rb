@@ -32,8 +32,15 @@ describe TakeAway do
 		expect(takeaway.calculate_total).to eq 25
 	end
 
+	it 'knows what time it is in 1 hour from now' do
+    time = Time.now + (60 * 60)
+    expect(takeaway.time_in_one_hour.to_i).to eq time.to_i
+  end
+
 	it 'sends text message with the order info' do
-		
+		message = 'something'
+		expect(takeaway).to receive(:send_text).with(message)
+		takeaway.send_text(message)
 	end
 	
 end

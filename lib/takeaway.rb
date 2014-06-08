@@ -51,7 +51,7 @@ class TakeAway
 		menu += "type pizza, burger or pasta\n"
 	end
 
-	def time_in_1_hour
+	def time_in_one_hour
 		Time.now + (60*60)
 	end
 
@@ -63,7 +63,7 @@ class TakeAway
 			place_order
 		end
 		rescue NoMethodError => e 
-			time = time_in_1_hour
+			time = time_in_one_hour
 			message = "Order Total: £#{@total}. Will be delivered before #{time.hour}:#{time.min}"
 			puts message
 			send_text(message)
