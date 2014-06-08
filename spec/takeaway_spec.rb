@@ -17,5 +17,12 @@ describe TakeAway do
 		menu += "type pizza, burger or pasta\n"
 		expect(takeaway.print_menu).to eq menu
 	end
+
+	it 'can place order' do
+		allow(takeaway).to receive(:dish).and_return(:pizza)
+		allow(takeaway).to receive(:quantity).and_return(5)
+		takeaway.place_order
+		expect(takeaway.price_list).to eq [25]
+	end
 	
 end
