@@ -11,7 +11,7 @@ class Array
 
 	# yield approach
 	def injectiano_yield(result=self[0])
-		result == nil? collection = self.dup : self.drop(1)
+		result == nil? ? collection = self.dup : collection = self.drop(1)
 
 		collection ||= collection.shift
 		collection.each{|el| result = yield result, el}
