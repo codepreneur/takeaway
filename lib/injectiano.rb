@@ -1,7 +1,7 @@
 class Array
 
 	# block.call approach
-	def injectiano(accumulator=0)
+	def injectiano(accumulator=0,&block)
 		self.each {|item| accumulator = block.call(accumulator,item)}
 		accumulator
 	end
