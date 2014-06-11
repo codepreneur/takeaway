@@ -1,13 +1,13 @@
 class Array
 
 	# block.call approach
-	def injectiano(accumulator=self.shift, &block)
+	def injectiano(accumulator=0)
 		self.each {|item| accumulator = block.call(accumulator,item)}
 		accumulator
 	end
 
 	# yield approach
-	def injectiano_yield(result=self.shift)
+	def injectiano_yield(result=0)
 		self.each{|el| result = yield result, el}
 		result
 	end
